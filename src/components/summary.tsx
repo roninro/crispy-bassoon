@@ -46,11 +46,6 @@ const Summary = (props: Props) => {
             </PostTitle>
             <PostByline>
               Published on <time className="date">{node.frontmatter.date}</time>
-              
-              {/* by{" "}
-              <a className="author" href="/">
-                mervin
-              </a> */}
             </PostByline>
           </PostHeader>
           <PostContent>
