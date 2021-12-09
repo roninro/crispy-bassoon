@@ -4,8 +4,8 @@ import { css, jsx } from "@emotion/react"
 import { Giscus } from "@giscus/react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Page from "../components/page"
-import { PostMeta } from "../components/post-meta"
+import Page from "@components/page"
+import { PostMeta } from "@components/post-meta"
 import {
   LoopContainer,
   PostContent,
@@ -16,7 +16,7 @@ import {
   PostHeader,
   PostTitle,
   PostContainer,
-} from "../components/styles"
+} from "@components/styles"
 import { useSiteMetadata } from "../hooks"
 import IndexLayout from "../layouts"
 import { Mdx } from "../types"

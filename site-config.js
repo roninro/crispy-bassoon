@@ -49,9 +49,9 @@ module.exports = {
   },
   giscus: {
     repo: "roninro/crispy-bassoon",
-    repoId: "",
+    repoId: "R_kgDOGgPnJw",
     category: "Comments",
-    categoryId: "",
+    categoryId: "DIC_kwDOGgPnJ84CANaJ",
     mapping: "pathname",
     reactionsEnabled: "1",
     emitMetadata: "0",

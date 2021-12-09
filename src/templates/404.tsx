@@ -1,10 +1,10 @@
-import Page from "../components/page"
+import Page from "@components/page"
 import {
   LoopContainer,
   EntryStyle,
   EntryArticle,
   PostContainer,
-} from "../components/styles"
+} from "@components/styles"
 import { useSiteMetadata } from "../hooks"
 import IndexLayout from "../layouts"
 

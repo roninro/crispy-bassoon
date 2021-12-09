@@ -3,7 +3,7 @@ import { css } from "@emotion/react"
 
 import IndexLayout from "../layouts"
 import { AllMdx } from "../types"
-import Page from "../components/page"
+import Page from "@components/page"
 import {
   LoopContainer,
   PostContent,
@@ -12,7 +12,7 @@ import {
   PostHeader,
   PostTitle,
   PostContainer,
-} from "../components/styles"
+} from "@components/styles"
 import { useSiteMetadata } from "@hooks"
 
 
