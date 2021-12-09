@@ -16,10 +16,14 @@
     "skipLibCheck": true,
     "allowJs": true,
     "checkJs": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
       "@hooks": ["hooks/index"],
     },
-  }
+  },
+  "include": [
+    "src"
+  ],
+  
 }
