@@ -1,0 +1,59 @@
+---
+title: Mdx Code Block Test
+featuredImage: ../images/featured/speeches-cover.jpg
+date: 2021-12-07T00:00:00.000Z
+tags:
+  - component
+  - Mdx
+  - SyntaxHighlighter
+categories:
+- Mdx
+---
+
+
+Markdown does not currently `support` the shortest reference syntax for images:
+Markdown does not currently `support` the shortest reference syntax for images:
+
+国际中文水平测试
+
+```bash
+$ 一行代码
+```
+
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, 世界")
+}
+```
+
+inline code block
+
+```go title=main.go {1}
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, 世界")
+}
+```
+
+```js {1,9-12}
+const harry = "potter"
+
+const characters = {
+  harry: "potter",
+  hermione: "granger",
+  ron: "weasley"
+}
+
+const WingardiumLeviosa = object => {
+  const isTroll = object === 'troll'
+  return isTroll ? `You are too weak to leviate a troll` : `You lifted ${object}`
+}
+```
