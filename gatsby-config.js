@@ -82,7 +82,7 @@ module.exports = {
             serialize: ({ query: { site, allMdx } }) =>
               allMdx.edges.map(edge => ({
                 ...edge.node.frontmatter,
-                description: edge.node.frontmatter.excerpt,
+                description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
                 url: site.siteMetadata.site_url + edge.node.fields.slug,
                 guid: site.siteMetadata.site_url + edge.node.fields.slug,

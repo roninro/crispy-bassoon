@@ -1,7 +1,7 @@
 "use strict"
 
 module.exports = {
-  url: "https://crispy-bassoon-omncvipcr-roninro.vercel.app",
+  url: "https://crispy-bassoon.vercel.app",
   title: "Gatsby Blog Starter",
   subtitle:
     "a simple theme for blog.",
