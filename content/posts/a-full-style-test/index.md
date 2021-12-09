@@ -41,7 +41,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ### Big Image
 
-![Test Image](img/testimg1.jpg)
+![Test Image](../images/testimg1.jpg)
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
@@ -49,7 +49,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
 
-![Small Test Image](img/testimg2.jpg)
+![Small Test Image](../images/testimg2.jpg)
 
 Labore et dolore.
 

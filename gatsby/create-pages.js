@@ -15,6 +15,20 @@ const createPages = async ({ graphql, actions }) => {
     component: path.resolve('./src/templates/404.tsx'),
   });
 
+  await createSectionPosts(graphql, actions)
+
+  await createPostsPages(graphql, actions)
+  await createTagsPages(graphql, actions)
+  await createCategoriesPages(graphql, actions)
+
+  createPage({
+    path: "/posts",
+    component: path.resolve("./src/templates/posts.tsx"),
+  })
+
+}
+
+async function createSectionPosts(graphql, actions) {
   // Posts from markdown
   const result = await graphql(`
     query {
@@ -58,18 +72,8 @@ const createPages = async ({ graphql, actions }) => {
     }
   `)
   createPosts(result2.data.allMdx.edges, actions)
-
-
-  await createPostsPages(graphql, actions)
-  await createTagsPages(graphql, actions)
-  await createCategoriesPages(graphql, actions)
-
-  createPage({
-    path: "/posts",
-    component: path.resolve("./src/templates/posts.tsx"),
-  })
-
 }
+
 
 function createPosts(edges, actions) {
   const { createPage } = actions
