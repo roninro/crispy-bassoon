@@ -3,18 +3,15 @@ import Page from "@components/page"
 import Pagination from "@components/pagination"
 import { LoopContainer } from "@components/styles"
 import Summary from "@components/summary"
-import { useSiteMetadata } from "../hooks"
 import IndexLayout from "../layouts"
 import { AllMdx, PageContext } from "../types"
-
+import SEO from '@components/seo'
 type Props = {
   data: AllMdx
   pageContext: PageContext
 }
 
 const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
-
   const {
     currentPage,
     totalPages,
@@ -28,7 +25,8 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
 
   return (
     <IndexLayout path={path}>
-      <Page title={siteTitle}>
+      <Page>
+      <SEO title="" description="" pathname={path} />
         <LoopContainer>
           {edges.map((edge, i) => (
             <Summary key={i} node={edge.node} />

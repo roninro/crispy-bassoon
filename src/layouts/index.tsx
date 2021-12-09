@@ -1,23 +1,21 @@
 /** @jsx jsx */
-import { css, jsx, Global } from "@emotion/react"
-import styled from "@emotion/styled"
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "gatsby"
-import * as React from "react"
-import Header from "@components/header"
 import { Categories } from "@components/cards/categories"
 import { Profile } from "@components/cards/profile"
 import { RecentPosts } from "@components/cards/recent-posts"
 import { TagCloud } from "@components/cards/tag-cloud"
+import Header from "@components/header"
 import { globalStyles } from "@components/styles"
-import { useSiteMetadata } from "../hooks"
-import {Helmet} from "react-helmet";
-
+import { css, jsx, Global } from "@emotion/react"
+import styled from "@emotion/styled"
 import "@fontsource/roboto"
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "gatsby"
+import * as React from "react"
+import { Helmet } from "react-helmet"
+import { useSiteMetadata } from "../hooks"
 
 type Props = {
-  // pageTitle: string
   path?: string
   children: React.ReactNode
 }
@@ -35,7 +33,6 @@ const IndexLayout = ({ path, children }: Props) => {
         setVisible(false)
       }
     }
-    
   }, [])
 
   function scrollToTop() {
@@ -47,9 +44,7 @@ const IndexLayout = ({ path, children }: Props) => {
 
   return (
     <>
-      <Helmet title={site.title} />
       <Global styles={globalStyles} />
-      {/* <Global styles={gatsbyHighlight} /> */}
       <OverFlowContainer>
         <Header
           title={site.title}
@@ -79,10 +74,17 @@ const IndexLayout = ({ path, children }: Props) => {
         </SiteFooter>
       </OverFlowContainer>
 
-      <ScrollToTopButton css={css`
-          -webkit-transform: ${visible ? 'translateY(-45px)' : 'background 0.2s, -webkit-transform 0.3s'};
-          transform: ${visible ? 'translateY(-45px)' : 'background 0.2s, transform 0.3s'};
-      `} onClick={scrollToTop}>
+      <ScrollToTopButton
+        css={css`
+          -webkit-transform: ${visible
+            ? "translateY(-45px)"
+            : "background 0.2s, -webkit-transform 0.3s"};
+          transform: ${visible
+            ? "translateY(-45px)"
+            : "background 0.2s, transform 0.3s"};
+        `}
+        onClick={scrollToTop}
+      >
         <FontAwesomeIcon icon={faArrowUp} />
       </ScrollToTopButton>
     </>
@@ -167,10 +169,5 @@ const ScrollToTopButton = styled.button`
     transition: transform 0.2s;
   }
 `
-
-// const visibleStyle = css`
-//   -webkit-transform: translateY(-45px);
-//   transform: translateY(-45px);
-// `
 
 export default IndexLayout

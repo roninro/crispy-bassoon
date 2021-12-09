@@ -1,11 +1,8 @@
 /** @jsx jsx */
 import MDX from "@components/mdx"
-import { css, jsx } from "@emotion/react"
-import { Giscus } from "@giscus/react"
-import { graphql, PageProps } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Page from "@components/page"
 import { PostMeta } from "@components/post-meta"
+import SEO from "@components/seo"
 import {
   LoopContainer,
   PostContent,
@@ -17,6 +14,10 @@ import {
   PostTitle,
   PostContainer,
 } from "@components/styles"
+import { css, jsx } from "@emotion/react"
+import { Giscus } from "@giscus/react"
+import { graphql, PageProps } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useSiteMetadata } from "../hooks"
 import IndexLayout from "../layouts"
 import { Mdx } from "../types"
@@ -52,6 +53,11 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
   return (
     <IndexLayout path={path}>
       <Page title={pageTitle}>
+        <SEO
+          title={data.mdx.frontmatter.title}
+          pathname={path}
+          description={data.mdx.excerpt}
+        />
         <LoopContainer>
           <EntryStyle>
             <EntryArticle>
@@ -66,7 +72,10 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
                 <PostHeader>
                   <PostTitle>{node.frontmatter.title}</PostTitle>
                   <PostByline>
-                    Published on {" "} <time className="date" dateTime={node.frontmatter.date}>{node.frontmatter.date}</time>
+                    Published on{" "}
+                    <time className="date" dateTime={node.frontmatter.date}>
+                      {node.frontmatter.date}
+                    </time>
                   </PostByline>
                 </PostHeader>
                 <PostContent>
@@ -127,10 +136,7 @@ export const query = graphql`
         }
         images {
           childImageSharp {
-            gatsbyImageData(
-              height: 300
-              placeholder: BLURRED
-            )
+            gatsbyImageData(height: 300, placeholder: BLURRED)
             original {
               height
               width

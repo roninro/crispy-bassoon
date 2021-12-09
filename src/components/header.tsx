@@ -358,7 +358,7 @@ const SiteHeader = styled.header`
 
 const ToggleButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
-    <ToggleButtonStyle onClick={onClick}>
+    <ToggleButtonStyle onClick={onClick} aria-label="toggle" >
       <svg
         width="36px"
         height="23px"

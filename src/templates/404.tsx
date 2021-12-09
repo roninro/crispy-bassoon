@@ -11,7 +11,7 @@ import IndexLayout from "../layouts"
 const NotFoundTemplate = () => {
   const { title: siteTitle } = useSiteMetadata()
 
-  const pageTitle = `${siteTitle} - 404`
+  const pageTitle = `404 - ${siteTitle}`
 
   return (
     <IndexLayout>

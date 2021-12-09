@@ -11,7 +11,12 @@ type Props = {
 const Page = ({ title, children }: Props) => {
   return (
     <MainSection>
-      <Helmet title={title} />
+      <Helmet
+        title={title}
+        htmlAttributes={{
+          lang: "zh-CN",
+        }}
+      ></Helmet>
       <EntryStyle>{children} </EntryStyle>
     </MainSection>
   )

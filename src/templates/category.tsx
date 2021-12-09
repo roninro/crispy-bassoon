@@ -1,10 +1,10 @@
-import { graphql, PageProps } from "gatsby"
 import { CategoryArchiveHeader } from "@components/archive-header"
 import Page from "@components/page"
 import Pagination from "@components/pagination"
+import SEO from "@components/seo"
 import { LoopContainer } from "@components/styles"
 import Summary from "@components/summary"
-import { useSiteMetadata } from "../hooks"
+import { graphql, PageProps } from "gatsby"
 import IndexLayout from "../layouts"
 import { AllMdx, PageContext } from "../types"
 
@@ -14,7 +14,6 @@ type Props = {
 }
 
 const CategoryTemplate = ({ data, pageContext, path }: Props & PageProps) => {
-  const { title: siteTitle } = useSiteMetadata()
 
   const {
     category,
@@ -28,10 +27,10 @@ const CategoryTemplate = ({ data, pageContext, path }: Props & PageProps) => {
 
   const { edges } = data.allMdx
 
-  const pageTitle = `${category} - ${siteTitle}`
   return (
     <IndexLayout path={path}>
-      <Page title={pageTitle}>
+      <Page>
+        <SEO title={category} description="" pathname={path} />
         <CategoryArchiveHeader title={category} />
 
         <LoopContainer>
@@ -53,36 +52,43 @@ const CategoryTemplate = ({ data, pageContext, path }: Props & PageProps) => {
 }
 
 export const query = graphql`
-query CategoryTemplate($postsLimit: Int!, $postsOffset: Int!, $category: String!) {
-  allMdx(
-    limit: $postsLimit
-    skip: $postsOffset
-    filter: {frontmatter: {draft: {ne: true}, categories: {in: [$category]}}, fields: {section: {eq: "posts"}}}
-    sort: {order: DESC, fields: [frontmatter___date]}
+  query CategoryTemplate(
+    $postsLimit: Int!
+    $postsOffset: Int!
+    $category: String!
   ) {
-    edges {
-      node {
-        fields {
-          slug
-          categorSlugs
-          tagSlugs
-        }
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          tags
-          categories
-          excerpt
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+    allMdx(
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: { draft: { ne: true }, categories: { in: [$category] } }
+        fields: { section: { eq: "posts" } }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            categorSlugs
+            tagSlugs
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            tags
+            categories
+            excerpt
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
           }
         }
       }
     }
   }
-}
 `
 
 export default CategoryTemplate

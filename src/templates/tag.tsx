@@ -4,9 +4,9 @@ import Page from "@components/page"
 import Pagination from "@components/pagination"
 import { LoopContainer } from "@components/styles"
 import Summary from "@components/summary"
-import { useSiteMetadata } from "../hooks"
 import IndexLayout from "../layouts"
 import { AllMdx, PageContext } from "../types"
+import SEO from "@components/seo"
 
 
 type Props = {
@@ -15,7 +15,6 @@ type Props = {
 }
 
 const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
 
   const {
     tag,
@@ -28,12 +27,11 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
   } = pageContext
 
   const { edges } = data.allMdx
-  const pageTitle =
-    currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle
 
   return (
     <IndexLayout path={path}>
-      <Page title={pageTitle}>
+      <Page>
+      <SEO title={tag} description="" pathname={path} />
       <TagArchiveHeader title={tag} />
 
         <LoopContainer>

@@ -1,9 +1,5 @@
-import { graphql, Link, PageProps } from "gatsby"
-import { css } from "@emotion/react"
-
-import IndexLayout from "../layouts"
-import { AllMdx } from "../types"
 import Page from "@components/page"
+import SEO from "@components/seo"
 import {
   LoopContainer,
   PostContent,
@@ -13,22 +9,23 @@ import {
   PostTitle,
   PostContainer,
 } from "@components/styles"
-import { useSiteMetadata } from "@hooks"
-
+import { css } from "@emotion/react"
+import { graphql, Link, PageProps } from "gatsby"
+import IndexLayout from "../layouts"
+import { AllMdx } from "../types"
 
 type Props = {
   data: AllMdx
 }
 
 const ArchiveTemplate = ({ data, path }: Props & PageProps) => {
-  const { title: siteTitle } = useSiteMetadata()
   const { group } = data.allMdx
-  const hTitle = '所有文章'
-  const pageTitle = `${hTitle} - ${siteTitle}`
+  const hTitle = "所有文章"
 
   return (
     <IndexLayout path={path}>
-      <Page title={pageTitle}>
+      <Page>
+        <SEO title={hTitle} description="" pathname={path} />
         <LoopContainer>
           <EntryStyle>
             <EntryArticle>
@@ -37,26 +34,33 @@ const ArchiveTemplate = ({ data, path }: Props & PageProps) => {
                   <PostTitle>{hTitle}</PostTitle>
                 </PostHeader>
                 <PostContent>
-                  {group.sort((a, b) => Number(b.fieldValue) - Number(a.fieldValue)).map(({ fieldValue, nodes }) => (
-                    <div key={fieldValue}>
-                      <h3>
-                        {fieldValue}
-                      </h3>
-                      <ul>
-                        {nodes.map(node => (
-                          <li key={node.id} className="archive-list" css={ArchiveItemCss}>
-                            
-                            <Link to={node.fields.slug}>
-                              {node.frontmatter.title}
-                            </Link>
-                            <span css={css`color: #a9a9b3`}>
-                              {node.frontmatter.date}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  {group
+                    .sort((a, b) => Number(b.fieldValue) - Number(a.fieldValue))
+                    .map(({ fieldValue, nodes }) => (
+                      <div key={fieldValue}>
+                        <h3>{fieldValue}</h3>
+                        <ul>
+                          {nodes.map(node => (
+                            <li
+                              key={node.id}
+                              className="archive-list"
+                              css={ArchiveItemCss}
+                            >
+                              <Link to={node.fields.slug}>
+                                {node.frontmatter.title}
+                              </Link>
+                              <span
+                                css={css`
+                                  color: #a9a9b3;
+                                `}
+                              >
+                                {node.frontmatter.date}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                 </PostContent>
               </PostContainer>
             </EntryArticle>
@@ -75,7 +79,7 @@ export const query = graphql`
         frontmatter: { draft: { ne: true } }
       }
       limit: 2000
-      sort: {order: DESC, fields: frontmatter___date}
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       group(field: fields___year) {
         nodes {
@@ -97,16 +101,15 @@ export const query = graphql`
 `
 
 const ArchiveItemCss = css`
-display: flex;
-justify-content: space-between;
-font-size: 0.9em;
-line-height: 2em;
-a {
-  font-weight: 400;
-  text-decoration: auto;
-  -webkit-text-decoration: auto;
-}
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  line-height: 2em;
+  a {
+    font-weight: 400;
+    text-decoration: auto;
+    -webkit-text-decoration: auto;
+  }
 `
-
 
 export default ArchiveTemplate

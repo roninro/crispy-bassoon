@@ -1,4 +1,5 @@
 export interface SiteContent {
+  url: string
   title: string
   subtitle: string
   menu: Menu[]
