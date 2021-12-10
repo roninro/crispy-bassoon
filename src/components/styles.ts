@@ -116,12 +116,14 @@ export const globalStyles = css`
   }
 
   code {
-    background: #f5f5f5;
-    padding: 0.2em 0.375em;
+    color: #18181b;
+    background: rgb(148 163 184 / 25%);
+    padding: 0.25rem 0.5rem;
     font-size: 0.875em;
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-      "Courier New", monospace;
-    color: #e74c3c;
+    border-width: 0;
+    border-style: solid;
+    border-radius: 0.25rem;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   }
 
   pre code {

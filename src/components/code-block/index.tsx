@@ -2,8 +2,7 @@
 import Copy from "@components/copy"
 import { jsx, css } from "@emotion/react"
 import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/github"
-import React from "react"
+import theme from "prism-react-renderer/themes/nightOwlLight"
 import { preToCodeBlock } from "./preToCodeBlock"
 
 const RE = /{([\d,-]+)}/
@@ -53,11 +52,7 @@ const SyntaxHiglight = ({
         <div css={CodeBlockStyle}>
           {title && (
             <div className="code-title">
-              <div
-                css={css`
-                  font-size: 0.75em;
-                `}
-              >
+              <div>
                 {title}
               </div>
             </div>
@@ -68,6 +63,7 @@ const SyntaxHiglight = ({
               <Copy className="copy" text={codeString} />
             </div>
             <pre className={language && className} style={style}>
+              <code >
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({ line, key: i })
 
@@ -84,6 +80,7 @@ const SyntaxHiglight = ({
                   </div>
                 )
               })}
+              </code>
             </pre>
           </div>
         </div>
@@ -101,13 +98,15 @@ const CodeBlockStyle = css`
     color: #6a737d;
     border-radius: 6px 6px 0 0;
     border-bottom: 1px solid #e1e4e8;
+    font-size: 0.875rem;
   }
 
   .gatsby-highlight {
     padding: 0;
     margin: 0;
     position: relative;
-    font-size: 0.875rem;
+    // font-size: 1rem;
+    display: block;
   }
 
   .gatsby-highlight pre[class*="language-"] {
@@ -122,7 +121,12 @@ const CodeBlockStyle = css`
     display: none;
     animation: fade-out 200ms both;
   }
-
+  .gatsby-highlight code {
+    float: left;
+    min-width: 100%;
+    color: inherit;
+    background-color: transparent;
+  }
   .copy-container {
     position: absolute !important;
     display: block;
@@ -171,8 +175,11 @@ const CodeBlockStyle = css`
   }
 
   .highlight-line {
-    background-color: #eee;
-    border-left: 4px solid rgb(2, 155, 206);
+    display: block;
+    // background-color: #eee;
+    // border-left: 4px solid rgb(2, 155, 206);
+    background: linear-gradient(
+      90deg, rgb(140, 175, 255) 0%, rgb(140, 175, 255) 0.5%, rgb(243, 242, 248) 0.5%, rgb(243, 242, 248) 100%);      
   }
 
   .highlight-line .line-number {
