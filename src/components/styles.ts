@@ -28,10 +28,10 @@ export const globalStyles = css`
   body {
     height: 100%;
     font-size: 100%;
-    font-weight: 300;
     margin: 0;
     padding: 0;
-    font-family: roboto, open sans, sans-serif;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 300;
     line-height: 1.5;
     background: #ededed;
     color: #333333;

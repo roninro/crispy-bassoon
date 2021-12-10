@@ -142,7 +142,6 @@ const CodeBlockStyle = css`
 
     display: inline-block;
     font-size: 14px;
-    font-weight: 500;
     line-height: 1em;
     white-space: nowrap;
     vertical-align: middle;
