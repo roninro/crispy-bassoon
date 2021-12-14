@@ -44,7 +44,7 @@ const IndexLayout = ({ path, children }: Props) => {
 
   return (
     <>
-      <Global styles={globalStyles} />
+      {/* <Global styles={globalStyles} /> */}
       <OverFlowContainer>
         <Header
           title={site.title}
@@ -54,7 +54,7 @@ const IndexLayout = ({ path, children }: Props) => {
           social={[]}
         />
         <PrimaryContainerStyle>
-          <div className="max-width">
+          <div >
             {children}
 
             <SidebarStyle>
