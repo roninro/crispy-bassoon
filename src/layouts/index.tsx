@@ -45,7 +45,7 @@ const IndexLayout = ({ path, children }: Props) => {
   return (
     <>
       {/* <Global styles={globalStyles} /> */}
-      <OverFlowContainer>
+      <div className="min-w-full">
         <Header
           title={site.title}
           subTitle={site.subtitle}
@@ -54,7 +54,7 @@ const IndexLayout = ({ path, children }: Props) => {
           social={[]}
         />
         <PrimaryContainerStyle>
-          <div >
+          <div className="" >
             {children}
 
             <SidebarStyle>
@@ -72,7 +72,7 @@ const IndexLayout = ({ path, children }: Props) => {
             <Link to="/"> &copy; 2016 - {new Date().getFullYear()} </Link>
           </div>
         </SiteFooter>
-      </OverFlowContainer>
+      </div>
 
       <ScrollToTopButton
         css={css`
