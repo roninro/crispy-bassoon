@@ -20,11 +20,8 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@hooks": ["hooks/index"],
-    },
+      "@hooks": ["hooks/index"]
+    }
   },
-  "include": [
-    "src"
-  ],
-  
+  "include": ["src"]
 }

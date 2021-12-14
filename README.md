@@ -1,7 +1,5 @@
 # crispy-bassoon
 
-
-
 ## TODO
 
 - [x] Responsive layout

@@ -16,8 +16,7 @@ module.exports = {
       reactionsEnabled: siteConfig.giscus.reactionsEnabled,
       emitMetadata: siteConfig.giscus.emitMetadata,
       theme: siteConfig.giscus.theme,
-    }
-    
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

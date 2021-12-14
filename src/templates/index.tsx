@@ -1,11 +1,12 @@
-import { graphql, PageProps } from "gatsby"
 import Page from "@components/page"
 import Pagination from "@components/pagination"
+import SEO from "@components/seo"
 import { LoopContainer } from "@components/styles"
 import Summary from "@components/summary"
+import { graphql, PageProps } from "gatsby"
 import IndexLayout from "../layouts"
 import { AllMdx, PageContext } from "../types"
-import SEO from '@components/seo'
+
 type Props = {
   data: AllMdx
   pageContext: PageContext
@@ -26,7 +27,7 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
   return (
     <IndexLayout path={path}>
       <Page>
-      <SEO title="" description="" pathname={path} />
+        <SEO title="" description="" pathname={path} />
         <LoopContainer>
           {edges.map((edge, i) => (
             <Summary key={i} node={edge.node} />

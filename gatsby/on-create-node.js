@@ -28,7 +28,6 @@ const onCreateNode = ({ node, actions, getNode }) => {
       })
     }
 
-
     if (node.frontmatter.tags) {
       const tagSlugs = node.frontmatter.tags.map(
         tag => `/tags/${_.kebabCase(tag)}/`
@@ -59,4 +58,4 @@ const onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-module.exports = onCreateNode;
+module.exports = onCreateNode

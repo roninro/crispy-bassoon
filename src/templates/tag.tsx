@@ -1,13 +1,12 @@
-import { graphql, PageProps } from "gatsby"
 import { TagArchiveHeader } from "@components/archive-header"
 import Page from "@components/page"
 import Pagination from "@components/pagination"
+import SEO from "@components/seo"
 import { LoopContainer } from "@components/styles"
 import Summary from "@components/summary"
+import { graphql, PageProps } from "gatsby"
 import IndexLayout from "../layouts"
 import { AllMdx, PageContext } from "../types"
-import SEO from "@components/seo"
-
 
 type Props = {
   data: AllMdx
@@ -15,7 +14,6 @@ type Props = {
 }
 
 const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
-
   const {
     tag,
     currentPage,
@@ -31,8 +29,8 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
   return (
     <IndexLayout path={path}>
       <Page>
-      <SEO title={tag} description="" pathname={path} />
-      <TagArchiveHeader title={tag} />
+        <SEO title={tag} description="" pathname={path} />
+        <TagArchiveHeader title={tag} />
 
         <LoopContainer>
           {edges.map((edge, i) => (
@@ -53,37 +51,39 @@ const IndexTemplate = ({ data, pageContext, path }: Props & PageProps) => {
 }
 
 export const query = graphql`
-query TagTemplate($postsLimit: Int!, $postsOffset: Int!, $tag: String!) {
-  allMdx(
-    limit: $postsLimit
-    skip: $postsOffset
-    filter: {frontmatter: {draft: {ne: true}, tags: {in: [$tag]}}, fields: {section: {eq: "posts"}}}
-    sort: {order: DESC, fields: [frontmatter___date]}
-  ) {
-    edges {
-      node {
-        fields {
-          slug
-          categorSlugs
-          tagSlugs
-        }
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          tags
-          categories
-          excerpt
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+  query TagTemplate($postsLimit: Int!, $postsOffset: Int!, $tag: String!) {
+    allMdx(
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: { draft: { ne: true }, tags: { in: [$tag] } }
+        fields: { section: { eq: "posts" } }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            categorSlugs
+            tagSlugs
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            tags
+            categories
+            excerpt
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
           }
         }
       }
     }
   }
-}
-
 `
 
 export default IndexTemplate

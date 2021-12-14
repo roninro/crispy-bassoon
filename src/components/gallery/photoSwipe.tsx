@@ -1,8 +1,8 @@
-import React, { useEffect, useRef} from "react";
-import 'photoswipe/dist/photoswipe.css';
-import 'photoswipe/dist/default-skin/default-skin.css';
-import PhotoSwipe, { Item } from 'photoswipe';
-import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
+import PhotoSwipe, { Item } from "photoswipe"
+import "photoswipe/dist/default-skin/default-skin.css"
+import PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default"
+import "photoswipe/dist/photoswipe.css"
+import React, { useEffect, useRef } from "react"
 
 type Props = {
   index: number
@@ -11,9 +11,8 @@ type Props = {
   onClose: () => void
 }
 
-
 const PhotoSwipeWrapper = (props: Props) => {
-  let pswpElement = useRef<HTMLDivElement>(null);
+  let pswpElement = useRef<HTMLDivElement>(null)
 
   const options = {
     index: props.index || 0,
@@ -21,26 +20,31 @@ const PhotoSwipeWrapper = (props: Props) => {
     history: false,
   }
   useEffect(() => {
-    const photoSwipe = new PhotoSwipe(pswpElement.current!, PhotoSwipeUI_Default, props.items, options);
+    const photoSwipe = new PhotoSwipe(
+      pswpElement.current!,
+      PhotoSwipeUI_Default,
+      props.items,
+      options
+    )
 
     if (photoSwipe) {
       if (props.isOpen) {
-        photoSwipe.init();
+        photoSwipe.init()
 
-        photoSwipe.listen('destroy', () => {
-          props.onClose();
-        });
+        photoSwipe.listen("destroy", () => {
+          props.onClose()
+        })
 
-        photoSwipe.listen('close', () => {
-          props.onClose();
-        });
+        photoSwipe.listen("close", () => {
+          props.onClose()
+        })
       }
       if (!props.isOpen) {
-        props.onClose();
+        props.onClose()
       }
     }
-  }, [props, options]);
-  
+  }, [props, options])
+
   return (
     <div
       className="pswp"
@@ -59,10 +63,22 @@ const PhotoSwipeWrapper = (props: Props) => {
         <div className="pswp__ui pswp__ui--hidden">
           <div className="pswp__top-bar">
             <div className="pswp__counter" />
-            <button className="pswp__button pswp__button--close" title="Close (Esc)" />
-            <button className="pswp__button pswp__button--share" title="Share" />
-            <button className="pswp__button pswp__button--fs" title="Toggle fullscreen" />
-            <button className="pswp__button pswp__button--zoom" title="Zoom in/out" />
+            <button
+              className="pswp__button pswp__button--close"
+              title="Close (Esc)"
+            />
+            <button
+              className="pswp__button pswp__button--share"
+              title="Share"
+            />
+            <button
+              className="pswp__button pswp__button--fs"
+              title="Toggle fullscreen"
+            />
+            <button
+              className="pswp__button pswp__button--zoom"
+              title="Zoom in/out"
+            />
             <div className="pswp__preloader">
               <div className="pswp__preloader__icn">
                 <div className="pswp__preloader__cut">
@@ -74,16 +90,21 @@ const PhotoSwipeWrapper = (props: Props) => {
           <div className="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
             <div className="pswp__share-tooltip" />
           </div>
-          <button className="pswp__button pswp__button--arrow--left" title="Previous (arrow left)" />
-          <button className="pswp__button pswp__button--arrow--right" title="Next (arrow right)" />
+          <button
+            className="pswp__button pswp__button--arrow--left"
+            title="Previous (arrow left)"
+          />
+          <button
+            className="pswp__button pswp__button--arrow--right"
+            title="Next (arrow right)"
+          />
           <div className="pswp__caption">
             <div className="pswp__caption__center" />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-
-export default PhotoSwipeWrapper;
+export default PhotoSwipeWrapper

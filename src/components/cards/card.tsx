@@ -1,12 +1,12 @@
-import React from "react"
 import styled from "@emotion/styled"
+import React from "react"
 
 const CardStyle = styled.section`
   background: #fff;
   box-shadow: 0 0 2px 0 rgb(58 58 58 / 20%);
   padding: 1.5em 4.6875375%;
   margin-bottom: 0.75em;
-  
+
   a:hover,
   a:active,
   a:focus {

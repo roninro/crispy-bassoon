@@ -14,7 +14,6 @@ type Props = {
 }
 
 const CategoryTemplate = ({ data, pageContext, path }: Props & PageProps) => {
-
   const {
     category,
     currentPage,

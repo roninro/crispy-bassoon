@@ -1,4 +1,4 @@
-import {css} from '@emotion/react'
+import { css } from "@emotion/react"
 import React from "react"
 import useCopyClipboard from "react-use-clipboard"
 

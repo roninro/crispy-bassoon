@@ -8,7 +8,7 @@ tags:
   - Tests
   - Getting Started
 categories:
-- Source/ssbc
+  - Source/ssbc
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
@@ -149,7 +149,8 @@ The <sub>sub element</sub> example <br />
 The <sup>sup element</sup> example <br />
 The <var>var element</var> example <br />
 The <u>u element</u> example
-* * *
+
+---
 
 ## Embeds
 
@@ -174,8 +175,6 @@ Culpa qui officia deserunt mollit anim id est laborum.
 ### Code
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-
-
 
 Isn't it beautiful.
 

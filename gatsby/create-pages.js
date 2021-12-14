@@ -5,15 +5,14 @@ const createCategoriesPages = require("./pagination/create-categories-pages")
 const path = require("path")
 const _ = require("lodash")
 
-
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   // 404
   createPage({
-    path: '/404',
-    component: path.resolve('./src/templates/404.tsx'),
-  });
+    path: "/404",
+    component: path.resolve("./src/templates/404.tsx"),
+  })
 
   await createSectionPosts(graphql, actions)
 
@@ -25,7 +24,6 @@ const createPages = async ({ graphql, actions }) => {
     path: "/posts",
     component: path.resolve("./src/templates/posts.tsx"),
   })
-
 }
 
 async function createSectionPosts(graphql, actions) {
@@ -74,12 +72,11 @@ async function createSectionPosts(graphql, actions) {
   createPosts(result2.data.allMdx.edges, actions)
 }
 
-
 function createPosts(edges, actions) {
   const { createPage } = actions
   _.each(edges, (edge, index) => {
     const layout = _.get(edge, "node.frontmatter.layout")
-    let templ = './src/templates/post.tsx'
+    let templ = "./src/templates/post.tsx"
     if (layout) {
       templ = `./src/templates/${layout}.tsx`
     }
@@ -87,14 +84,13 @@ function createPosts(edges, actions) {
     createPage({
       path: edge.node.fields.slug,
       component: path.resolve(templ),
-      context: { 
+      context: {
         slug: edge.node.fields.slug,
         prev: index === 0 ? null : edges[index - 1].node,
-        next: index === edges.length - 1 ? null : edges[index + 1].node
-      }
+        next: index === edges.length - 1 ? null : edges[index + 1].node,
+      },
     })
   })
-    
 }
 
-module.exports = createPages;
+module.exports = createPages

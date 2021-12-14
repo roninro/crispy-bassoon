@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
+import _ from "lodash"
 import { useCategoriesList } from "../../hooks"
 import Card from "./card"
-import _ from "lodash"
 
 export const Categories = () => {
   const groups = useCategoriesList()

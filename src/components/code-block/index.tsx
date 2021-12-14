@@ -52,9 +52,7 @@ const SyntaxHiglight = ({
         <div css={CodeBlockStyle}>
           {title && (
             <div className="code-title">
-              <div>
-                {title}
-              </div>
+              <div>{title}</div>
             </div>
           )}
 
@@ -63,23 +61,23 @@ const SyntaxHiglight = ({
               <Copy className="copy" text={codeString} />
             </div>
             <pre className={language && className} style={style}>
-              <code >
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
+              <code>
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i })
 
-                if (shouldHighlightLine(i)) {
-                  lineProps.className = `${lineProps.className} highlight-line`
-                }
+                  if (shouldHighlightLine(i)) {
+                    lineProps.className = `${lineProps.className} highlight-line`
+                  }
 
-                return (
-                  <div {...lineProps}>
-                    <span className="line-number">{i + 1}</span>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                )
-              })}
+                  return (
+                    <div {...lineProps}>
+                      <span className="line-number">{i + 1}</span>
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  )
+                })}
               </code>
             </pre>
           </div>
@@ -178,7 +176,12 @@ const CodeBlockStyle = css`
     // background-color: #eee;
     // border-left: 4px solid rgb(2, 155, 206);
     background: linear-gradient(
-      90deg, rgb(140, 175, 255) 0%, rgb(140, 175, 255) 0.5%, rgb(243, 242, 248) 0.5%, rgb(243, 242, 248) 100%);      
+      90deg,
+      rgb(140, 175, 255) 0%,
+      rgb(140, 175, 255) 0.5%,
+      rgb(243, 242, 248) 0.5%,
+      rgb(243, 242, 248) 100%
+    );
   }
 
   .highlight-line .line-number {

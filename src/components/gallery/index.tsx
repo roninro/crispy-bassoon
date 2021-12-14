@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import{ jsx, css }from"@emotion/react";
+import { jsx, css } from "@emotion/react"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import createJustifiedLayout from "justified-layout"
 import "photoswipe/dist/default-skin/default-skin.css"
@@ -81,16 +81,14 @@ const Gallery = ({ images }: Props) => {
   }
   const handleClose = () => setIsOpen(false)
 
-  
-
   return (
     <Fragment>
       <div
-      css={css`
-      .gatsby-image-wrapper {
-        position: unset !important;
-      }
-      `}
+        css={css`
+          .gatsby-image-wrapper {
+            position: unset !important;
+          }
+        `}
         ref={container}
         style={geometryState ? geometryState.containerStyle : {}}
       >
@@ -103,10 +101,7 @@ const Gallery = ({ images }: Props) => {
                 handleOpen(i)
               }}
             >
-              <GatsbyImage
-                alt=""
-                image={getImage(image)!}
-              />
+              <GatsbyImage alt="" image={getImage(image)!} />
             </div>
           ))}
       </div>

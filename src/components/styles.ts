@@ -123,7 +123,6 @@ export const globalStyles = css`
     border-width: 0;
     border-style: solid;
     border-radius: 0.25rem;
-    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   }
 
   pre code {

@@ -30,11 +30,11 @@ module.exports = async (graphql, actions) => {
 
     for (let i = 0; i < numPages; i += 1) {
       createPage({
-        path: i === 0 ? `${categorySlug}/` : `${categorySlug}/page/${i+1}`,
+        path: i === 0 ? `${categorySlug}/` : `${categorySlug}/page/${i + 1}`,
         component: path.resolve("./src/templates/category.tsx"),
         context: {
           category: tag.fieldValue,
-          currentPage: i+1,
+          currentPage: i + 1,
           postsLimit: postsPerPage,
           postsOffset: i * postsPerPage,
           prevPagePath: i <= 1 ? categorySlug : `${categorySlug}/page/${i}`,

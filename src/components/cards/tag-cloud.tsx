@@ -11,7 +11,7 @@ export const TagCloud = () => {
   const smallest = 8
   const largest = 22
 
-  let font_spread = largest - smallest;
+  let font_spread = largest - smallest
   if (font_spread < 0) {
     font_spread = 1
   }
@@ -35,9 +35,8 @@ export const TagCloud = () => {
               font-size: ${smallest + (t.totalCount - min_count) * font_step}px;
               margin-right: 2px;
               margin-left: 2px;
-              `}
+            `}
           >{`${t.fieldValue}`}</Link>
-
         ))}
       </div>
     </Card>

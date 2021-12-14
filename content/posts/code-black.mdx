@@ -7,9 +7,8 @@ tags:
   - Mdx
   - SyntaxHighlighter
 categories:
-- Mdx
+  - Mdx
 ---
-
 
 Markdown does not currently `support` the shortest reference syntax for images:
 Markdown does not currently `support` the shortest reference syntax for images:
@@ -19,7 +18,6 @@ Markdown does not currently `support` the shortest reference syntax for images:
 ```bash
 $ 一行代码
 ```
-
 
 ```go
 package main
@@ -49,11 +47,13 @@ const harry = "potter"
 const characters = {
   harry: "potter",
   hermione: "granger",
-  ron: "weasley"
+  ron: "weasley",
 }
 
 const WingardiumLeviosa = object => {
-  const isTroll = object === 'troll'
-  return isTroll ? `You are too weak to leviate a troll` : `You lifted ${object}`
+  const isTroll = object === "troll"
+  return isTroll
+    ? `You are too weak to leviate a troll`
+    : `You lifted ${object}`
 }
 ```

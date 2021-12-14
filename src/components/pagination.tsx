@@ -1,7 +1,7 @@
-import styled from "@emotion/styled"
 import { css } from "@emotion/react"
-import React from "react"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
+import React from "react"
 
 type Props = {
   currentPage: number
@@ -30,9 +30,11 @@ const Pagination = ({
             Previous
           </Link>
         )}
-        <a css={css`
-          font-size: 90%;
-        `}>
+        <a
+          css={css`
+            font-size: 90%;
+          `}
+        >
           {`page ${currentPage} of ${totalPages}`}
         </a>
         {hasNextPage && (

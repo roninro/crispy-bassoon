@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react"
 import { Link } from "gatsby"
-import _ from 'lodash'
+import _ from "lodash"
 
 type Props = {
   tags?: string[]
@@ -80,21 +80,20 @@ const furtherReading = css`
     text-decoration: underline;
   }
 
-@media all and (min-width: 37.5em) {
-
-  div {
-    width: 50%;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: -4px;
+  @media all and (min-width: 37.5em) {
+    div {
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: -4px;
+    }
+    .previous {
+      margin-bottom: 0;
+    }
+    .next {
+      text-align: right;
+    }
   }
-  .previous {
-    margin-bottom: 0;
-  }
-  .next {
-    text-align: right;
-  }
-}
 `
 
 export const PostMeta = (props: Props) => {
@@ -123,14 +122,20 @@ export const PostMeta = (props: Props) => {
       <Link to="/">Return to Blog</Link>
     </div>
   )
-  
+
   let categories
   if (props.categories) {
     categories = (
       <p css={PostCategoriesCss}>
         <span>Published in </span>
         {props.categories.map((category, index) => (
-          <Link key={index} to={`/categories/${_.kebabCase(category)}`} css={css`margin-right: 4px`} >
+          <Link
+            key={index}
+            to={`/categories/${_.kebabCase(category)}`}
+            css={css`
+              margin-right: 4px;
+            `}
+          >
             {category}
           </Link>
         ))}
@@ -148,11 +153,12 @@ export const PostMeta = (props: Props) => {
 
       <div css={PostTagsCss}>
         <ul>
-          { props.tags && props.tags.map((tag, index) => (
-            <li key={index}>
-              <Link to={`/tags/${_.kebabCase(tag)}`}>{tag}</Link>
-            </li>
-          ))}
+          {props.tags &&
+            props.tags.map((tag, index) => (
+              <li key={index}>
+                <Link to={`/tags/${_.kebabCase(tag)}`}>{tag}</Link>
+              </li>
+            ))}
         </ul>
       </div>
       <nav css={furtherReading}>

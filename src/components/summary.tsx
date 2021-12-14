@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/react';
+import { jsx, css } from "@emotion/react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Node } from "../types"
@@ -54,10 +54,15 @@ const Summary = (props: Props) => {
                 ? node.frontmatter.excerpt
                 : node.excerpt}
             </p>
-            <div css={css`display: inline-block;`}>
-              <Link to={node.fields.slug} css={MoreLinkStyle} >阅读全文</Link>
+            <div
+              css={css`
+                display: inline-block;
+              `}
+            >
+              <Link to={node.fields.slug} css={MoreLinkStyle}>
+                阅读全文
+              </Link>
             </div>
-            
           </PostContent>
         </PostContainer>
       </EntryArticle>

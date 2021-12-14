@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import{ jsx, css }from"@emotion/react";
+import { jsx, css } from "@emotion/react"
 
 export const galleryStyle = css`
-width: 100%;
+  width: 100%;
 `
 
 export const galleryItemStyle = css`
@@ -13,7 +13,7 @@ export const galleryItemStyle = css`
   margin: 0;
   max-width: 25%;
 
-a {
-  border: none;
-}
+  a {
+    border: none;
+  }
 `

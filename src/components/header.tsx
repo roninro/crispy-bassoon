@@ -358,7 +358,7 @@ const SiteHeader = styled.header`
 
 const ToggleButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
-    <ToggleButtonStyle onClick={onClick} aria-label="toggle" >
+    <ToggleButtonStyle onClick={onClick} aria-label="toggle">
       <svg
         width="36px"
         height="23px"
@@ -426,7 +426,14 @@ const Header = (props: Props) => {
             <nav className="menu">
               <ul className="menu-primary-items">
                 {props.menu.map((item, index) => (
-                  <li key={index} className={(props.currentPath === item.path) ? `current-menu-item` : `menu-item`}>
+                  <li
+                    key={index}
+                    className={
+                      props.currentPath === item.path
+                        ? `current-menu-item`
+                        : `menu-item`
+                    }
+                  >
                     <Link to={item.path}>{item.label}</Link>
                   </li>
                 ))}

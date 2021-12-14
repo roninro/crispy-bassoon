@@ -3,8 +3,7 @@
 module.exports = {
   url: "https://crispy-bassoon.vercel.app",
   title: "Gatsby Blog Starter",
-  subtitle:
-    "a simple theme for blog.",
+  subtitle: "a simple theme for blog.",
   copyright: "© All rights reserved.",
   disqusShortname: "",
   postsPerPage: 10,
@@ -56,5 +55,5 @@ module.exports = {
     reactionsEnabled: "1",
     emitMetadata: "0",
     theme: "light",
-  }
+  },
 }

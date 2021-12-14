@@ -29,7 +29,6 @@ export const TagArchiveHeader = ({ title }: Props) => {
   )
 }
 
-
 export const CalendarArchiveHeader = ({ title }: Props) => {
   return (
     <div css={ArchiveHeaderCss}>
@@ -40,11 +39,6 @@ export const CalendarArchiveHeader = ({ title }: Props) => {
     </div>
   )
 }
-
-
-
-
-
 
 const ArchiveHeaderCss = css`
   margin-bottom: 0.75em;

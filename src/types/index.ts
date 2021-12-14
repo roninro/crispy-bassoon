@@ -18,7 +18,6 @@ export interface SiteContent {
 
 export type Menus = Menu[]
 
-
 export interface Menu {
   label: string
   path: string
@@ -29,7 +28,6 @@ export interface IconLink {
   icon: string
   link: string
 }
-
 
 // graphql type
 export interface Group {
@@ -48,7 +46,6 @@ export type PageContext = {
   hasNextPage: boolean
   totalPages: number
 }
-
 
 export type Node = {
   fields: {

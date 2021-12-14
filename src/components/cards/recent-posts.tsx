@@ -3,7 +3,6 @@ import { useRecentPosts } from "../../hooks"
 import Card from "./card"
 
 export const RecentPosts = () => {
-
   const nodes = useRecentPosts()
 
   return (

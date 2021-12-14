@@ -1,11 +1,10 @@
 ---
 title: About Theme
 draft: false
-excerpt: ''
+excerpt: ""
 ---
 
 About Theme
-
 
 Period displays your content beautifully across phones, widescreen monitors, and everything in between.
 

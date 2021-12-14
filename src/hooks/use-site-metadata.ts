@@ -1,8 +1,8 @@
 // @flow strict
-import { useStaticQuery, graphql } from 'gatsby';
-import { SiteContent } from '../types';
+import { useStaticQuery, graphql } from "gatsby"
+import { SiteContent } from "../types"
 
-const useSiteMetadata:  ()=> SiteContent = () => {
+const useSiteMetadata: () => SiteContent = () => {
   const { site } = useStaticQuery(
     graphql`
       query SiteMetaData {
@@ -30,9 +30,9 @@ const useSiteMetadata:  ()=> SiteContent = () => {
         }
       }
     `
-  );
+  )
 
-  return site.siteMetadata;
-};
+  return site.siteMetadata
+}
 
-export default useSiteMetadata;
+export default useSiteMetadata
